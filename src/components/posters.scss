@@ -15,6 +15,7 @@
 .poster {
   position: relative;
   box-shadow: 0 3px 8px 0 transparentize($color: color(black), $amount: 0.87);
+  cursor: zoom-in;
 }
 
 .poster__thumbnail {

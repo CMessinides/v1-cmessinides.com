@@ -42,7 +42,7 @@ const PosterItem = ({ description, fluid, index }) => {
     lightbox.openLightbox(POSTERS_SLIDESHOW_KEY, index, buttonRef);
 
   return (
-    <li className="poster">
+    <li className="poster" onClick={handleClick}>
       {fluid && (
         <Img alt={description} className="poster__thumbnail" fluid={fluid} />
       )}
