@@ -17,18 +17,10 @@
   font-weight: 700;
 }
 
-.section__markdown {
+.section__blurb {
   margin-top: spacing(sm);
+}
 
-  em {
-    font-style: italic;
-  }
-
-  strong {
-    font-weight: 700;
-  }
-
-  p {
-    max-width: 32rem;
-  }
+.section__blurb--formatted {
+  @include rich-text;
 }

@@ -29,3 +29,30 @@
     }
   }
 }
+
+@mixin link {
+  color: color(accent);
+  text-decoration: none;
+  border-bottom: 2px transparentize($color: color(accent), $amount: 0.85) solid;
+  padding-bottom: 1px;
+  transition: 120ms border-color linear;
+
+  &:hover,
+  &:focus {
+    border-color: color(accent);
+  }
+}
+
+@mixin rich-text {
+  strong {
+    font-weight: font-weight(bold);
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  a {
+    @include link;
+  }
+}

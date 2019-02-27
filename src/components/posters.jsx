@@ -61,13 +61,41 @@ const PosterItem = ({ description, fluid, index }) => {
   );
 };
 
-const PosterList = () => {
+const PosterList = ({ posters }) => {
+  return (
+    <ul className="posters">
+      {posters.map((poster, index) => {
+        return (
+          <PosterItem
+            key={poster.slug}
+            date={poster.date}
+            slug={poster.slug}
+            description={poster.description}
+            fluid={poster.image && poster.image.node.childImageSharp.fluid}
+            index={index}
+          />
+        );
+      })}
+    </ul>
+  );
+};
+
+const Posters = () => {
   const lightbox = React.useContext(LightboxContext);
 
   return (
     <StaticQuery
       query={graphql`
         query PostersQuery {
+          blurb: file(
+            sourceInstanceName: { eq: "content" }
+            base: { eq: "posters.md" }
+          ) {
+            childMarkdownRemark {
+              html
+            }
+          }
+
           posters: file(
             sourceInstanceName: { eq: "data" }
             base: { eq: "posters.yaml" }
@@ -136,44 +164,23 @@ const PosterList = () => {
         }
 
         return (
-          <ul className="posters">
-            {posters.map((poster, index) => {
-              return (
-                <PosterItem
-                  key={poster.slug}
-                  date={poster.date}
-                  slug={poster.slug}
-                  description={poster.description}
-                  fluid={
-                    poster.image && poster.image.node.childImageSharp.fluid
-                  }
-                  index={index}
-                />
-              );
-            })}
-          </ul>
+          <section className="section section--posters">
+            <div className="section__item container">
+              <h2 className="section__heading">Poster design</h2>
+              <div
+                className="section__blurb section__blurb--formatted"
+                dangerouslySetInnerHTML={{
+                  __html: data.blurb.childMarkdownRemark.html
+                }}
+              />
+            </div>
+            <div className="section__item container container--wide">
+              <PosterList posters={posters} />
+            </div>
+          </section>
         );
       }}
     />
-  );
-};
-
-const Posters = () => {
-  return (
-    <section className="section section--posters">
-      <div className="section__item container">
-        <h2 className="section__heading">Poster design</h2>
-        <div className="section__markdown">
-          <p>
-            As publicity intern at the <em>Kenyon Review</em>, I designed
-            posters for several
-          </p>
-        </div>
-      </div>
-      <div className="section__item container container--wide">
-        <PosterList />
-      </div>
-    </section>
   );
 };
 
