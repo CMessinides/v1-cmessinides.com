@@ -38,7 +38,7 @@
   padding: spacing(md, px);
   max-height: 100%;
 
-  @include mq($from: desktop) {
+  @include mq($from: wide) {
     display: flex;
     align-items: center;
     padding: spacing(lg, px);
@@ -54,11 +54,11 @@
   width: auto;
   max-width: 100%;
   
-  @include mq($until: desktop) {
+  @include mq($until: wide) {
     height: auto;
   }
 
-  @include mq($from: desktop) {
+  @include mq($from: wide) {
     max-height: 100%;
     flex: 0;
   }
@@ -66,9 +66,9 @@
 
 .poster-slide__details {
   color: color(grey, 700);
-  padding: spacing(lg) 0 spacing(md, px);
+  padding: spacing(md) 0 spacing(md, px);
 
-  @include mq($from: desktop) {
+  @include mq($from: wide) {
     padding: 0 0 0 spacing(md, px);
     margin-left: spacing(lg, px);
     align-self: flex-end;
