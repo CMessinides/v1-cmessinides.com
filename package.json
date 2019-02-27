@@ -5,22 +5,32 @@
   "version": "0.1.0",
   "author": "Cameron Messinides <me@cmessinides.com>",
   "dependencies": {
+    "classnames": "^2.2.6",
+    "focus-trap-react": "^6.0.0",
     "gatsby": "^2.1.11",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-manifest": "^2.0.18",
     "gatsby-plugin-offline": "^2.0.24",
     "gatsby-plugin-react-helmet": "^3.0.6",
+    "gatsby-plugin-sass": "^2.0.10",
     "gatsby-plugin-sharp": "^2.0.21",
     "gatsby-source-filesystem": "^2.0.21",
+    "gatsby-transformer-remark": "^2.2.6",
     "gatsby-transformer-sharp": "^2.1.14",
+    "gatsby-transformer-yaml": "^2.1.8",
+    "lodash": "^4.17.11",
+    "node-sass": "^4.11.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
-    "react-helmet": "^5.2.0"
+    "react-feather": "^1.1.6",
+    "react-helmet": "^5.2.0",
+    "sass-mq": "^5.0.0"
   },
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "clean": "gatsby clean",
     "develop": "gatsby develop",
     "start": "yarn develop",
     "serve": "gatsby serve",
@@ -33,6 +43,7 @@
   "devDependencies": {
     "babel-jest": "^24.1.0",
     "babel-preset-gatsby": "^0.1.8",
+    "eslint": "5.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.1.0",
     "react-test-renderer": "^16.8.3"

@@ -1,0 +1,11 @@
+.container {
+  margin: 0 auto;
+  padding: 0 spacing(md, px);
+  max-width: 40rem;
+}
+
+.container--wide {
+  @include mq($from: desktop) {
+    max-width: 64rem;
+  }
+}

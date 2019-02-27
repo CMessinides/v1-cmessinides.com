@@ -1,0 +1,34 @@
+.section {
+  padding: spacing(xl) 0;
+}
+
+.section--posters {
+  background-color: color(grey, 100);
+}
+
+.section__item + .section__item {
+  margin-top: spacing(lg);
+}
+
+.section__heading {
+  @include accent-bar($over: false);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 700;
+}
+
+.section__markdown {
+  margin-top: spacing(sm);
+
+  em {
+    font-style: italic;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  p {
+    max-width: 32rem;
+  }
+}

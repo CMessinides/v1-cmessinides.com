@@ -1,0 +1,88 @@
+.posters {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: spacing(md, px);
+
+  @include mq($from: mini-tablet) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include mq($from: desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.poster {
+  position: relative;
+  box-shadow: 0 3px 8px 0 transparentize($color: color(black), $amount: 0.87);
+}
+
+.poster__thumbnail {
+  display: block;
+}
+
+.poster__expand-button {
+  position: absolute;
+  bottom: spacing(sm, px);
+  left: spacing(sm, px);
+}
+
+.poster-slide {
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+}
+
+.poster-slide__container {
+  padding: spacing(md, px);
+  max-height: 100%;
+
+  @include mq($from: desktop) {
+    display: flex;
+    align-items: center;
+    padding: spacing(lg, px);
+    height: 100%;
+    max-height: 960px;
+    max-width: 60rem;
+  }
+}
+
+.poster-slide__image {
+  display: block;
+  object-fit: contain;
+  width: auto;
+  max-width: 100%;
+  
+  @include mq($until: desktop) {
+    height: auto;
+  }
+
+  @include mq($from: desktop) {
+    max-height: 100%;
+    flex: 0;
+  }
+}
+
+.poster-slide__details {
+  color: color(grey, 700);
+  padding: spacing(lg) 0 spacing(md, px);
+
+  @include mq($from: desktop) {
+    padding: 0 0 0 spacing(md, px);
+    margin-left: spacing(lg, px);
+    align-self: flex-end;
+    margin-bottom: 10%;
+    border-left: 1px color(grey, 300) solid;
+  }
+}
+
+.poster-slide__description {
+  @include font($weight: bold);
+  max-width: 24em;
+}
+
+.poster-slide__date {
+  font-style: italic;
+  margin-top: spacing(xs);
+}

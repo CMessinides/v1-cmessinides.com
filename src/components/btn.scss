@@ -1,0 +1,44 @@
+.btn {
+  @include button-reset;
+  padding: spacing(sm, px);
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px color(focus-blue);
+  }
+}
+
+.btn--white {
+  background-color: color(white);
+  box-shadow: 0 0 0 1px color(grey, 300);
+  transition: 120ms background-color linear;
+
+  &:hover {
+    background-color: color(grey, 100);
+  }
+}
+
+.btn--glass {
+  background-color: color(white);
+  box-shadow: 0 1px 2px 1px transparentize($color: color(black), $amount: 0.6);
+  opacity: 0.667;
+  transition: 120ms opacity linear;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px color(focus-blue),
+                0 1px 4px 2px transparentize($color: color(black), $amount: 0.8);
+  }
+}
+
+.btn--round {
+  border-radius: 100%;
+}
+
+.btn__icon {
+  display: block;
+}

@@ -1,0 +1,31 @@
+@mixin button-reset {
+  appearance: none;
+  background: 0;
+  cursor: pointer;
+  color: inherit;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  font-family: inherit;
+}
+
+@mixin accent-bar($over: true, $color: color(accent), $margin: spacing(sm), $width: spacing(xl, px), $height: 2px) {
+  @if $over == true {
+    &::before {
+      content: '';
+      display: block;
+      width: $width;
+      border-bottom: $height $color solid;
+      margin-bottom: $margin;
+    }
+  } @else {
+    &::after {
+      content: '';
+      display: block;
+      width: $width;
+      border-top: $height $color solid;
+      margin-top: $margin;
+    }
+  }
+}
