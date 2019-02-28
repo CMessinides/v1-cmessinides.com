@@ -4,7 +4,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: transparentize(color(white), 0.05);
+  background-color: color($name: white, $alpha: 0.95);
   display: flex;
   flex-direction: column;
 }
@@ -20,7 +20,7 @@
   background-color: color(white);
   display: flex;
   align-items: center;
-  box-shadow: 0 2px 8px 1px transparentize(color(black), 0.83);
+  box-shadow: 0 2px 8px 1px color($name: black, $alpha: 0.17);
   padding: spacing(sm, px) spacing(md, px);
 }
 

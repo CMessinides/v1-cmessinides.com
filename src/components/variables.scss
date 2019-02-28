@@ -27,12 +27,12 @@ $colors: (
   )
 );
 
-@function color($name, $level: 400) {
+@function color($name, $level: 400, $alpha: 1) {
   @if map-has-key($colors, $name) {
     $color: map-get($colors, $name);
 
     @if map-has-key($color, $level) {
-      @return map-get($color, $level);
+      @return transparentize(map-get($color, $level), 1 - $alpha);
     }
 
     @warn "There is no level #{$level} for color #{$name}";

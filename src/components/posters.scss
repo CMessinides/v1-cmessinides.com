@@ -14,7 +14,7 @@
 
 .poster {
   position: relative;
-  box-shadow: 0 3px 8px 0 transparentize($color: color(black), $amount: 0.87);
+  box-shadow: 0 3px 8px 0 color($name: black, $alpha: 0.13);
   cursor: zoom-in;
 }
 
