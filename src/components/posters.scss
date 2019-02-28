@@ -38,44 +38,23 @@
 .poster-slide__container {
   padding: spacing(md, px);
   max-height: 100%;
+  width: 100%;
+  max-width: 640px;
 
   @include mq($from: wide) {
-    display: flex;
-    align-items: center;
-    padding: spacing(lg, px);
-    height: 100%;
-    max-height: 960px;
-    max-width: 60rem;
+    max-width: 960px;
   }
 }
 
 .poster-slide__image {
   display: block;
-  object-fit: contain;
-  width: auto;
   max-width: 100%;
-  
-  @include mq($until: wide) {
-    height: auto;
-  }
-
-  @include mq($from: wide) {
-    max-height: 100%;
-    flex: 0;
-  }
+  height: auto;
 }
 
 .poster-slide__details {
   color: color(grey, 700);
   padding: spacing(md) 0 spacing(md, px);
-
-  @include mq($from: wide) {
-    padding: 0 0 0 spacing(md, px);
-    margin-left: spacing(lg, px);
-    align-self: flex-end;
-    margin-bottom: 10%;
-    border-left: 1px color(grey, 300) solid;
-  }
 }
 
 .poster-slide__description {

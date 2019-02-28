@@ -7,19 +7,11 @@ import { Maximize2 } from "react-feather";
 
 const POSTERS_SLIDESHOW_KEY = "posters";
 
-const PosterLightboxSlide = ({ description, date, fixed }) => {
+const PosterLightboxSlide = ({ description, date, fluid }) => {
   return (
     <div className="poster-slide">
       <figure className="poster-slide__container container">
-        {fixed && (
-          <img
-            className="poster-slide__image"
-            src={fixed.src}
-            alt={description}
-            width={fixed.width}
-            height={fixed.height}
-          />
-        )}
+        {fluid && <Img fluid={fluid} className="poster-slide__image" />}
         <figcaption className="poster-slide__details">
           <p className="poster-slide__description">{description}</p>
           <p className="poster-slide__date">
@@ -117,12 +109,8 @@ const Posters = () => {
               node {
                 base
                 childImageSharp {
-                  fluid(maxWidth: 320) {
+                  fluid(maxWidth: 960) {
                     ...GatsbyImageSharpFluid
-                  }
-
-                  fixed(width: 960) {
-                    ...GatsbyImageSharpFixed
                   }
                 }
               }
@@ -153,8 +141,8 @@ const Posters = () => {
                   <PosterLightboxSlide
                     description={poster.description}
                     date={poster.date}
-                    fixed={
-                      poster.image && poster.image.node.childImageSharp.fixed
+                    fluid={
+                      poster.image && poster.image.node.childImageSharp.fluid
                     }
                   />
                 )
