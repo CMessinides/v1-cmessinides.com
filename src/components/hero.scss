@@ -1,0 +1,73 @@
+.hero {
+  padding: spacing(2xl) 0 spacing(lg);
+  background-color: color(accent);
+  color: color(white);
+}
+
+.hero__title {
+  @include font($size: h1, $leading: none, $weight: bold);
+}
+
+.hero__subtitle,
+.hero__social-heading {
+  color: color($name: white, $alpha: 0.85);
+}
+
+.hero__subtitle {
+  @include font($size: h6);
+  font-style: italic;
+  margin-top: spacing(sm);
+}
+
+.hero__social {
+  margin-top: spacing(lg);
+}
+
+.hero__social-heading {
+  @include font($size: sm, $leading: none, $tracking: wide);
+  text-transform: uppercase;
+}
+
+.hero__social-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: spacing(md, px);
+  margin-top: spacing(md);
+
+  @include mq($from: mini-tablet) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.hero__social-link {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: spacing(sm, px);
+  border: 1px color($name: white, $alpha: 0.5) solid;
+  border-radius: 999px;
+  transition: 120ms background-color linear,
+              120ms border-color linear;
+
+  &:hover,
+  &:focus {
+    background-color: color($name: white, $alpha: 0.18);
+    border-color: color(white);
+
+    .hero__chevron-icon {
+      color: inherit;
+    }
+  }
+}
+
+.hero__social-link-name {
+  @include font($size: sm, $leading: none);
+  margin-left: spacing(sm, px);
+}
+
+.hero__chevron-icon {
+  margin-left: auto;
+  color: color($name: white, $alpha: 0.5);
+  transition: 120ms color linear;
+}

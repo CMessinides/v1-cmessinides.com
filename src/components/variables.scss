@@ -1,6 +1,6 @@
 $mq-breakpoints: (
   mobile:      320px,
-  mini-tablet: 500px, 
+  mini-tablet: 560px, 
   tablet:      740px,
   desktop:     980px,
   wide:        1400px
@@ -48,7 +48,8 @@ $spacing: (
   sm: 8,
   md: 16,
   lg: 32,
-  xl: 48
+  xl: 48,
+  2xl: 80
 );
 
 @function spacing($level, $unit: rem) {

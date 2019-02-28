@@ -2,7 +2,13 @@ module.exports = {
   siteMetadata: {
     title: `Cameron Messinides`,
     description: `Front-end developer, designer, and writer.`,
-    author: `@cmessinides`
+    author: `@cmessinides`,
+    social: {
+      github: `https://github.com/CMessinides`,
+      codepen: `https://codepen.io/cmessinides`,
+      instagram: `https://www.instagram.com/cmessinides`,
+      email: `mailto:me@cmessinides.com`
+    }
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
