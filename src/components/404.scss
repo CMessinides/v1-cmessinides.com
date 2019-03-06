@@ -1,0 +1,38 @@
+._404 {
+  background-color: color(accent);
+  color: color(white);
+  padding: spacing(xl) spacing(md, px);
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+._404__title {
+  margin-bottom: spacing(lg);
+}
+
+._404__title-status-code {
+  @include font($size: h0, $leading: none, $weight: bold);
+  display: block;
+}
+
+._404__title-status-text {
+  @include font($size: h5, $tracking: wide);
+  color: color(white, $alpha: 0.85);
+  display: block;
+  margin-top: spacing(xs);
+  text-transform: uppercase;
+}
+
+._404__home-link {
+  @include link($colorName: white);
+  display: flex;
+  align-items: center;
+}
+
+._404__home-link-icon {
+  margin-right: spacing(sm, px);
+}

@@ -1,0 +1,25 @@
+.footer {
+  @include font($size: sm);
+  background-color: color(accent);
+  color: color(white, $alpha: 0.85);
+  padding: spacing(md) 0;
+}
+
+.footer__container {
+  @include mq($from: mini-tablet) {
+    display: flex;
+  };
+}
+
+.footer__copyright,
+.footer__credit {
+  display: block;
+}
+
+.footer__copyright {
+  margin-right: auto;
+}
+
+.footer__link {
+  @include link($colorName: white);
+}

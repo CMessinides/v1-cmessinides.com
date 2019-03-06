@@ -13,11 +13,24 @@ const Layout = ({ children }) => {
             className="application"
             aria-hidden={lightbox.isOpen ? "true" : null}
           >
-            <main>{children}</main>
-            <footer>
-              © {new Date().getFullYear()}, Built with
-              {` `}
-              <a href="https://www.gatsbyjs.org">Gatsby</a>
+            <main className="application__main">{children}</main>
+            <footer className="application__footer footer">
+              <div className="container footer__container">
+                <span className="footer__copyright">
+                  Copyright © {new Date().getFullYear()} Cameron Messinides
+                </span>
+                <span className="footer__credit">
+                  Built with{" "}
+                  <a
+                    className="footer__link"
+                    href="https://www.gatsbyjs.org"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    Gatsby
+                  </a>
+                </span>
+              </div>
             </footer>
           </div>
         )}
