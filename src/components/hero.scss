@@ -17,6 +17,7 @@
   @include font($size: h6);
   font-style: italic;
   margin-top: spacing(sm);
+  max-width: 24em;
 }
 
 .hero__social {
