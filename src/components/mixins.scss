@@ -30,20 +30,24 @@
   }
 }
 
-@mixin link {
-  color: color(accent);
+@mixin link($colorName: accent) {
+  color: color($colorName);
   text-decoration: none;
-  border-bottom: 2px color($name: accent, $alpha: 0.33) solid;
-  padding-bottom: 1px;
+  border-bottom: 2px color($name: $colorName, $alpha: 0.33) solid;
+  padding-bottom: 2px;
   transition: 120ms border-color linear;
+
+  &:active {
+    color: color($colorName);
+  }
 
   &:hover,
   &:focus {
-    border-color: color(accent);
+    border-color: color($colorName);
   }
 }
 
-@mixin rich-text {
+@mixin rich-text($linkColorName: accent) {
   strong {
     font-weight: font-weight(bold);
   }
@@ -53,6 +57,10 @@
   }
 
   a {
-    @include link;
+    @include link($linkColorName);
+  }
+
+  & > * + * {
+    margin-top: spacing(md);
   }
 }
