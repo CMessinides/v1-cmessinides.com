@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Cameron Messinides`,
-    description: `Front-end developer, designer, and writer.`,
+    description: `Front-end developer, designer, and writer. Working toward a fast, accessible, ethical web.`,
     author: `@cmessinides`,
     social: {
       github: `https://github.com/CMessinides`,
