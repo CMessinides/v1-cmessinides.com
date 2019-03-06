@@ -1,5 +1,5 @@
 # cmessinides.com
-This repository contains the source code for my personal website, [https://cmessinides.com](https://cmessinides.com). I've built it using [Gatsby](https://www.gatsbyjs.org/), [React](https://reactjs.org/), and [Sass](https://sass-lang.com/). I've also made use of [Feather icons]() by [Cole Bemis](https://colebemis.com/) and [Karla typeface](https://fonts.google.com/specimen/Karla) by [Jonny Pinhorn](https://github.com/jonpinhorn).
+This repository contains the source code for my personal website, [https://www.cmessinides.com](https://www.cmessinides.com). I've built it using [Gatsby](https://www.gatsbyjs.org), [React](https://reactjs.org), and [Sass](https://sass-lang.com). I've also made use of [Feather icons](https://feathericons.com) by [Cole Bemis](https://colebemis.com) and [Karla typeface](https://fonts.google.com/specimen/Karla) by [Jonny Pinhorn](https://github.com/jonpinhorn).
 
 ## Development
 
