@@ -6,7 +6,6 @@ import Hero from "../components/hero";
 import About from "../components/about";
 import Posters from "../components/posters";
 import Projects from "../components/projects";
-import Writing from "../components/writing";
 
 const IndexPage = () => (
   <Layout>
@@ -15,7 +14,6 @@ const IndexPage = () => (
     <About />
     <Projects />
     <Posters />
-    <Writing />
   </Layout>
 );
 
