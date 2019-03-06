@@ -2,7 +2,7 @@
   padding: spacing(xl) 0;
 }
 
-.section--posters {
+.section:nth-child(2n+1) {
   background-color: color(grey, 100);
 }
 
@@ -18,7 +18,7 @@
 }
 
 .section__blurb {
-  margin-top: spacing(sm);
+  margin-top: spacing(md);
 }
 
 .section__blurb--formatted {
