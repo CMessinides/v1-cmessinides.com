@@ -1,0 +1,44 @@
+- slug: kenyon-collegian-website
+  title: The Kenyon Collegian Website
+  year: 2017
+  description: >
+    I was responsible for the site migration and redesign of the *Kenyon
+    Collegian* website in 2017. I conducted a
+    [UX audit](https://paper.dropbox.com/doc/Site-Usability-Analysis--AYvHv1csOcmrIrpYc0920A_jAQ-yKmTaYpoVMgRe94sazrAi)
+    of the old site to inform the new design, which I implemented with
+    a custom WordPress theme using HTML, PHP, Sass, JavaScript, and Gulp.
+  links:
+    live: https://kenyoncollegian.com/
+- slug: collegian-magazine-website
+  title: The Collegian Magazine Website
+  year: 2017
+  description: >
+    In 2017, I designed and developed the website for the *Collegian Magazine* using Middleman,
+    HTML, Sass, JavaScript, and Gulp with a CMS provided by [Prismic](https://prismic.io/).
+    I'm most pleased with how I was able to provide the *Magazine*'s editors
+    with flexible page layouts that adapted to a variety of stories—you can find
+    some examples [here](https://www.thecollegianmagazine.com/open-book/),
+    [here](https://www.thecollegianmagazine.com/the-longest-line/),
+    and [here](https://www.thecollegianmagazine.com/kenyon-style/).
+  links:
+    live: https://www.thecollegianmagazine.com/
+- slug: kenyon-collegian-tipline
+  title: The Kenyon Collegian Tipline
+  year: 2018
+  description: >
+    This is a simple app I coded using React to allow *Kenyon Collegian* readers to submit
+    tips to the newspaper. It features form validation and unique styles for embedded (iframe)
+    contexts. My biggest takeaway from this project was testing—I finally got a hang of TDD with Jest.
+  links:
+    live: https://tips.kenyoncollegian.com/
+    github: https://github.com/CMessinides/kenyon-collegian-tipline
+- slug: personal-website
+  title: cmessinides.com
+  year: 2019
+  description: >
+    I coded this site with Gatsby, React, and Sass. It was also my first
+    experience using React Hooks. I'm especially proud of the responsive and
+    accessible lightbox I developed for this site—click on one of the poster
+    thumbnails below to see it in action.
+  links:
+    github: https://github.com/CMessinides/cmessinides.com
