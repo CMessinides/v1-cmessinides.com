@@ -1,12 +1,12 @@
 .lightbox {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   background-color: color($name: white, $alpha: 0.95);
+  bottom: 0;
   display: flex;
   flex-direction: column;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
 }
 
 .lightbox--closed {
@@ -16,11 +16,11 @@
 
 .lightbox__top-bar,
 .lightbox__bottom-bar {
-  flex: 0 0 auto;
-  background-color: color(white);
-  display: flex;
   align-items: center;
+  background-color: color(white);
   box-shadow: 0 2px 8px 1px color($name: black, $alpha: 0.17);
+  display: flex;
+  flex: 0 0 auto;
   padding: spacing(sm, px) spacing(md, px);
 }
 
@@ -41,10 +41,10 @@
 }
 
 .lightbox__counter {
+  left: 50%;
+  line-height: 1;
   position: absolute;
   text-align: center;
-  line-height: 1;
-  left: 50%;
   transform: translateX(-50%);
 }
 

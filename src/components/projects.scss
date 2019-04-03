@@ -11,10 +11,10 @@
   margin-bottom: spacing(sm);
 
   &::before {
+    color: color(accent, $alpha: 0.667);
     content: "\2022";
     position: absolute;
     transform: translateX(-100%) translateX(-4px);
-    color: color(accent, $alpha: 0.667);
   }
 }
 
@@ -24,9 +24,9 @@
 
 .project__link {
   @include link;
+  align-items: center;
   display: inline-flex;
   line-height: 1;
-  align-items: center;
   margin-right: spacing(md, px);
 }
 

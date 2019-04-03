@@ -12,9 +12,9 @@
 
 .section__heading {
   @include accent-bar($over: false);
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
   font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
 }
 
 .section__blurb {

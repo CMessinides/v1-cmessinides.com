@@ -1,7 +1,7 @@
 .posters {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   grid-gap: spacing(md, px);
+  grid-template-columns: repeat(2, 1fr);
 
   @include mq($from: mini-tablet) {
     grid-template-columns: repeat(3, 1fr);
@@ -13,9 +13,9 @@
 }
 
 .poster {
-  position: relative;
   box-shadow: 0 3px 8px 0 color($name: black, $alpha: 0.13);
   cursor: zoom-in;
+  position: relative;
 }
 
 .poster__thumbnail {
@@ -23,23 +23,23 @@
 }
 
 .poster__expand-button {
-  position: absolute;
   bottom: spacing(sm, px);
   left: spacing(sm, px);
+  position: absolute;
 }
 
 .poster-slide {
+  align-items: center;
+  display: flex;
   height: 100%;
   overflow-y: auto;
-  display: flex;
-  align-items: center;
 }
 
 .poster-slide__container {
-  padding: spacing(md, px);
   max-height: 100%;
-  width: 100%;
   max-width: 640px;
+  padding: spacing(md, px);
+  width: 100%;
 
   @include mq($from: wide) {
     max-width: 960px;
@@ -48,8 +48,8 @@
 
 .poster-slide__image {
   display: block;
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
 }
 
 .poster-slide__details {

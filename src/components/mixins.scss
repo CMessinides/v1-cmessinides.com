@@ -1,40 +1,40 @@
 @mixin button-reset {
   appearance: none;
   background: 0;
-  cursor: pointer;
-  color: inherit;
   border: 0;
-  padding: 0;
-  margin: 0;
-  font-size: 100%;
+  color: inherit;
+  cursor: pointer;
   font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 @mixin accent-bar($over: true, $color: color(accent), $margin: spacing(sm), $width: spacing(xl, px), $height: 2px) {
   @if $over == true {
     &::before {
+      border-bottom: $height $color solid;
       content: '';
       display: block;
-      width: $width;
-      border-bottom: $height $color solid;
       margin-bottom: $margin;
+      width: $width;
     }
   } @else {
     &::after {
+      border-top: $height $color solid;
       content: '';
       display: block;
-      width: $width;
-      border-top: $height $color solid;
       margin-top: $margin;
+      width: $width;
     }
   }
 }
 
 @mixin link($colorName: accent) {
-  color: color($colorName);
-  text-decoration: none;
   border-bottom: 2px color($name: $colorName, $alpha: 0.33) solid;
+  color: color($colorName);
   padding-bottom: 2px;
+  text-decoration: none;
   transition: 120ms border-color linear;
 
   &:active {

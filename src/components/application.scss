@@ -1,15 +1,15 @@
 .application {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 .application__main {
-  flex: 1 1 auto;
+  align-items: stretch;
   display: flex;
   flex-direction: column;
+  flex: 1 1 auto;
   justify-content: stretch;
-  align-items: stretch;
 }
 
 .application__footer {

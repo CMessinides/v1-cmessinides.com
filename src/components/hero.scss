@@ -1,7 +1,7 @@
 .hero {
-  padding: spacing(2xl) 0 spacing(lg);
   background-color: color(accent);
   color: color(white);
+  padding: spacing(2xl) 0 spacing(lg);
 }
 
 .hero__title {
@@ -31,8 +31,8 @@
 
 .hero__social-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   grid-gap: spacing(md, px);
+  grid-template-columns: repeat(2, 1fr);
   margin-top: spacing(md);
 
   @include mq($from: mini-tablet) {
@@ -41,15 +41,14 @@
 }
 
 .hero__social-link {
-  color: inherit;
-  text-decoration: none;
-  display: flex;
   align-items: center;
-  padding: spacing(sm, px);
-  border: 1px color($name: white, $alpha: 0.5) solid;
   border-radius: 999px;
-  transition: 120ms background-color linear,
-              120ms border-color linear;
+  border: 1px color($name: white, $alpha: 0.5) solid;
+  color: inherit;
+  display: flex;
+  padding: spacing(sm, px);
+  text-decoration: none;
+  transition: 120ms background-color linear, 120ms border-color linear;
 
   &:hover,
   &:focus {
@@ -68,7 +67,7 @@
 }
 
 .hero__chevron-icon {
-  margin-left: auto;
   color: color($name: white, $alpha: 0.5);
+  margin-left: auto;
   transition: 120ms color linear;
 }
