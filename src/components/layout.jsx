@@ -1,41 +1,44 @@
 import React from "react";
 import PropTypes from "prop-types";
+import CSSReset from "./css-reset";
+import styled from "styled-components";
+import { colors, textSizes, leading, fontFamilies } from "./tokens";
 
-import "./index.scss";
-import LightboxProvider, { LightboxContext } from "./lightbox";
+const LayoutWrapper = styled.div`
+  color: ${colors.black};
+  font-family: ${fontFamilies.body};
+  font-size: ${textSizes.md};
+  line-height: ${leading.normal};
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-kerning: normal;
+`;
 
 const Layout = ({ children }) => {
   return (
-    <LightboxProvider>
-      <LightboxContext.Consumer>
-        {lightbox => (
-          <div
-            className="application"
-            aria-hidden={lightbox.isOpen ? "true" : null}
-          >
-            <main className="application__main">{children}</main>
-            <footer className="application__footer footer">
-              <div className="container footer__container">
-                <span className="footer__copyright">
-                  Copyright © {new Date().getFullYear()} Cameron Messinides
-                </span>
-                <span className="footer__credit">
-                  Built with{" "}
-                  <a
-                    className="footer__link"
-                    href="https://www.gatsbyjs.org"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    Gatsby
-                  </a>
-                </span>
-              </div>
-            </footer>
-          </div>
-        )}
-      </LightboxContext.Consumer>
-    </LightboxProvider>
+    <LayoutWrapper>
+      <CSSReset />
+      <main className="application__main">{children}</main>
+      <footer className="application__footer footer">
+        <div className="container footer__container">
+          <span className="footer__copyright">
+            Copyright © {new Date().getFullYear()} Cameron Messinides
+          </span>
+          <span className="footer__credit">
+            Built with{" "}
+            <a
+              className="footer__link"
+              href="https://www.gatsbyjs.org"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Gatsby
+            </a>
+          </span>
+        </div>
+      </footer>
+    </LayoutWrapper>
   );
 };
 

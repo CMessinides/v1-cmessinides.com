@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Cameron Messinides`,
-    description: `Front-end developer, designer, and writer. Working toward a fast, accessible, ethical web.`,
+    description: `Here’s how I can help the Kenyon College Office of Communications.`,
     author: `@cmessinides`,
     social: {
       github: `https://github.com/CMessinides`,
@@ -43,19 +43,17 @@ module.exports = {
         name: `Cameron Messinides`,
         short_name: `C. Messinides`,
         start_url: `/`,
-        background_color: `#5922EF`,
-        theme_color: `#5922EF`,
+        background_color: `#4B2E84`,
+        theme_color: `#4B2E84`,
         display: `minimal-ui`,
         icon: `src/images/cm-icon.png`, // This path is relative to the root of the site.
         include_favicon: true
       }
     },
     {
-      resolve: `gatsby-plugin-sass`,
-      options: {
-        includePaths: [require(`path`).resolve(__dirname, `node_modules`)]
-      }
-    }
+      resolve: `gatsby-plugin-styled-components`
+    },
+    `gatsby-plugin-postcss`
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',

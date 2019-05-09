@@ -1,79 +1,71 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
-import { GitHub, Instagram, Codepen, Mail, ChevronRight } from "react-feather";
+import Section from "./section";
+import Container from "./container";
+import styled from "styled-components";
+import {
+  tracking,
+  fontFamilies,
+  leading,
+  textSizes,
+  spacing,
+  screens,
+  measure,
+  colors
+} from "./tokens";
 
-const socialIcons = {
-  GitHub: GitHub,
-  Instagram: Instagram,
-  Codepen: Codepen,
-  Email: Mail
-};
+const HeroSection = styled(Section)`
+  padding-top: ${spacing["3xl"]};
+  color: ${colors["grey-darker"]};
+
+  @media ${screens.md} {
+    padding-top: ${spacing["4xl"]};
+  }
+`;
+
+const HeroKicker = styled.p`
+  font-family: ${fontFamilies.mono};
+  text-transform: uppercase;
+  letter-spacing: ${tracking.wide};
+`;
+
+const HeroHeading = styled.h1`
+  text-transform: uppercase;
+  letter-spacing: ${tracking.wide};
+  line-height: ${leading.none};
+  font-weight: 700;
+  font-size: ${textSizes["2xl"]};
+  color: ${colors.black};
+  margin: ${spacing.md} 0;
+
+  @media (min-width: 24em) {
+    font-size: ${textSizes["3xl"]};
+  }
+`;
+
+const HeroBlurb = styled.p`
+  max-width: ${measure.normal};
+
+  strong {
+    color: ${colors.black};
+    font-weight: 700;
+  }
+`;
 
 const Hero = () => {
   return (
-    <StaticQuery
-      query={graphql`
-        query HeroQuery {
-          site {
-            siteMetadata {
-              title
-              description
-              social {
-                GitHub: github
-                Codepen: codepen
-                Instagram: instagram
-                Email: email
-              }
-            }
-          }
-        }
-      `}
-      render={data => {
-        return (
-          <header className="hero">
-            <div className="container">
-              <h1 className="hero__title">{data.site.siteMetadata.title}</h1>
-              <p className="hero__subtitle">
-                {data.site.siteMetadata.description}
-              </p>
-              <div className="hero__social">
-                <h2 className="hero__social-heading">Elsewhere on the web</h2>
-                <ul className="hero__social-list">
-                  {Object.keys(data.site.siteMetadata.social).map(name => {
-                    const url = data.site.siteMetadata.social[name];
-                    const SocialIcon = socialIcons[name];
-                    return (
-                      <li className="hero__social-item" key={name}>
-                        <a
-                          className="hero__social-link"
-                          href={url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {SocialIcon && (
-                            <SocialIcon
-                              className="icon hero__social-icon"
-                              aria-hidden="true"
-                              size={16}
-                            />
-                          )}
-                          <span className="hero__social-link-name">{name}</span>
-                          <ChevronRight
-                            className="icon hero__chevron-icon"
-                            aria-hidden="true"
-                            size={16}
-                          />
-                        </a>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            </div>
-          </header>
-        );
-      }}
-    />
+    <HeroSection as="header">
+      <Container>
+        <HeroKicker>Graphic Designer</HeroKicker>
+        <HeroHeading>Cameron Messinides</HeroHeading>
+        <HeroBlurb>
+          Four years of graphic design experience. A proven track record of
+          hitting deadlines. Self-sufficient and quick to learn.{" "}
+          <strong className="text-white">
+            Ready to help the Office of Communications tell Kenyon’s story.
+          </strong>
+        </HeroBlurb>
+      </Container>
+    </HeroSection>
   );
 };
 

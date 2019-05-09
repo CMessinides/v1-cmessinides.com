@@ -12,7 +12,7 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         <link
-          href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i"
+          href="https://fonts.googleapis.com/css?family=Inconsolata|Rubik:400,400i,700,700i"
           rel="stylesheet"
         />
         {props.headComponents}

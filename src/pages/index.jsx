@@ -3,18 +3,22 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Hero from "../components/hero";
-import About from "../components/about";
-import Posters from "../components/posters";
-import Projects from "../components/projects";
+import PostersProject from "../components/homepage/posters-project";
+import CollegianWebProject from "../components/homepage/collegian-web-project";
+import CollegianMagazineProject from "../components/homepage/collegian-mag-project";
+import OtherProjects from "../components/homepage/other-projects";
 
-const IndexPage = () => (
-  <Layout>
-    <SEO />
-    <Hero />
-    <About />
-    <Projects />
-    <Posters />
-  </Layout>
-);
+const IndexPage = () => {
+  return (
+    <Layout>
+      <SEO />
+      <Hero />
+      <PostersProject />
+      <CollegianWebProject />
+      <CollegianMagazineProject />
+      <OtherProjects />
+    </Layout>
+  );
+};
 
 export default IndexPage;
