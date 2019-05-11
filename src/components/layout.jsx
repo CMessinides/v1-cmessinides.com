@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { colors, textSizes, leading, fontFamilies } from "./tokens";
 
 const LayoutWrapper = styled.div`
+  background-color: ${colors.white};
   color: ${colors.black};
   font-family: ${fontFamilies.body};
   font-size: ${textSizes.md};

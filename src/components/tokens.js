@@ -134,10 +134,10 @@ const spacingScale = {
   md: 16,
   lg: 20,
   xl: 32,
-  "2xl": 64,
-  "3xl": 96,
-  "4xl": 144,
-  "5xl": 256
+  "2xl": 48,
+  "3xl": 64,
+  "4xl": 96,
+  "5xl": 144
 };
 export const spacing = Object.keys(spacingScale).reduce((map, label) => {
   map[label] = new SizeUnit(spacingScale[label]);
@@ -145,7 +145,8 @@ export const spacing = Object.keys(spacingScale).reduce((map, label) => {
 }, {});
 
 export const maxWidths = {
-  narrow: "40rem",
+  narrower: "40rem",
+  narrow: "56rem",
   normal: "78rem",
   wide: "80rem"
 };
@@ -196,7 +197,7 @@ export const fontFamilies = {
 
 export const colors = {
   // Greyscale
-  black: new Color("#22292f"),
+  black: new Color("#090b0c"),
   "grey-darkest": new Color("#3d4852"),
   "grey-darker": new Color("#606f7b"),
   "grey-dark": new Color("#8795a1"),

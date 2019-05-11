@@ -1,36 +1,48 @@
 - name: The Kenyon Review Reading Series
-  blurb: Turning unique literary voices into stand-out posters.
+  blurb: Turning unique literary voices into one-of-a-kind posters.
   slug: kenyon-review
   category: Print
   date: Fall 2016 – Spring 2019
-  thumbnail: kr-posters-thumb.jpg
+  thumbnail: kr-posters-thumb.png
+  themeColor: "#F4BD30"
+  textColor: "#403517"
 - name: The Kenyon Collegian Website
   blurb: A clear, engaging news experience for readers on and off the Hill.
   slug: kenyon-collegian-web
   category: Web
   date: Fall 2017
   thumbnail: kc-web-thumb.png
+  themeColor: "#4B2E84"
+  textColor: "#FFFFFF"
 - name: The Kenyon Collegian Logo
-  blurb: Putting the Kenyon back in Kenyon Collegian
+  blurb: Putting the “Kenyon” back in “Kenyon Collegian”
   slug: kenyon-collegian-logo
   category: Branding
   date: Winter 2016
   thumbnail: kc-logo-thumb.png
+  themeColor: "#4B2E84"
+  textColor: "#FFFFFF"
 - name: MLK, Student Newspapers, and the Five Colleges of Ohio
   blurb: History, race, and student media at Ohio’s private liberal arts colleges.
   slug: mlk-five-colleges
   category: Web
   date: Spring 2019
   thumbnail: mlk-web-thumb.jpg
+  themeColor: "#6574CD"
+  textColor: "#FFFFFF"
 - name: The Collegian Magazine Website
   blurb: Flexible layouts and bold typography for Kenyon’s longform stories.
   slug: collegian-magazine-web
   category: Web
   date: Summer 2017
   thumbnail: cm-web-thumb.png
+  themeColor: "#3875A8"
+  textColor: "#FFFFFF"
 - name: 40.3756° N, 82.3971° W → 32.3792° N, 86.3077° W
   blurb: An archive of violence, a map of movement.
   slug: forty-north-map
   category: Print
   date: Fall 2018
   thumbnail: forty-north-thumb.jpg
+  themeColor: "#DC0723"
+  textColor: "#FFFFFF"

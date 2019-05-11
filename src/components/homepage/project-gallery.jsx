@@ -4,7 +4,8 @@ import Img from "gatsby-image";
 import Container from "../container";
 import Section from "../section";
 import { screens, spacing, textSizes, colors, leading } from "../tokens";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { ProjectName, ProjectBlurb, ProjectDetails } from "../project";
 
 const GalleryContainer = styled(Container)`
@@ -18,27 +19,13 @@ const GalleryContainer = styled(Container)`
   }
 `;
 
-const GalleryProjectName = styled(ProjectName)`
-  display: inline;
-  color: ${colors.purple};
-`;
-
-const GalleryProjectBlurb = styled(ProjectBlurb)`
-  color: inherit;
-  display: inline;
-
-  &::before {
-    content: "\\2002";
-  }
-`;
-
 const GalleryProjectDetails = styled(ProjectDetails)`
   color: inherit;
   font-size: ${textSizes.md};
   margin-top: ${spacing.xs};
 `;
 
-const GalleryProjectLink = styled(Link)`
+const GalleryProjectLink = styled(AniLink)`
   text-decoration: none;
   color: ${colors["grey-darker"]};
 
@@ -107,14 +94,27 @@ const GalleryProjectContainer = styled.article`
   }
 `;
 
-function GalleryProject({ name, blurb, slug, category, date, thumbnailImg }) {
+function GalleryProject({
+  name,
+  blurb,
+  slug,
+  category,
+  date,
+  themeColor,
+  thumbnailImg
+}) {
   return (
     <GalleryProjectContainer>
-      <GalleryProjectLink to={`/work/${slug}`}>
+      <GalleryProjectLink
+        to={`/work/${slug}`}
+        paintDrip
+        hex={themeColor}
+        duration={0.8}
+      >
         <Img fluid={thumbnailImg.fluid} alt="" />
         <div style={{ marginTop: spacing.md }}>
-          <GalleryProjectName>{name}</GalleryProjectName>
-          <GalleryProjectBlurb>{blurb}</GalleryProjectBlurb>
+          <ProjectName color={colors.purple}>{name}</ProjectName>
+          <ProjectBlurb color="inherit">{blurb}</ProjectBlurb>
         </div>
         <GalleryProjectDetails>
           {category}&emsp;//&emsp;<time>{date}</time>
@@ -136,6 +136,7 @@ export default function ProjectGallery() {
             slug
             category
             date
+            themeColor
           }
         }
       }
