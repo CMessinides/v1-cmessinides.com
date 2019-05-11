@@ -3,16 +3,9 @@ import styled from "styled-components";
 import Img from "gatsby-image";
 import Container from "../container";
 import Section from "../section";
-import {
-  screens,
-  spacing,
-  textSizes,
-  colors,
-  fontFamilies,
-  leading,
-  tracking
-} from "../tokens";
+import { screens, spacing, textSizes, colors, leading } from "../tokens";
 import { Link, useStaticQuery, graphql } from "gatsby";
+import { ProjectName, ProjectBlurb, ProjectDetails } from "../project";
 
 const GalleryContainer = styled(Container)`
   @media ${screens.sm} {
@@ -25,30 +18,27 @@ const GalleryContainer = styled(Container)`
   }
 `;
 
-const ProjectName = styled.h3`
+const GalleryProjectName = styled(ProjectName)`
   display: inline;
-  font-weight: 700;
   color: ${colors.purple};
 `;
 
-const ProjectBlurb = styled.p`
+const GalleryProjectBlurb = styled(ProjectBlurb)`
+  color: inherit;
   display: inline;
-  font-style: italic;
 
   &::before {
     content: "\\2002";
   }
 `;
 
-const ProjectDetails = styled.p`
+const GalleryProjectDetails = styled(ProjectDetails)`
+  color: inherit;
   font-size: ${textSizes.md};
-  font-family: ${fontFamilies.mono};
   margin-top: ${spacing.xs};
-  text-transform: uppercase;
-  letter-spacing: ${tracking.wide};
 `;
 
-const ProjectLink = styled(Link)`
+const GalleryProjectLink = styled(Link)`
   text-decoration: none;
   color: ${colors["grey-darker"]};
 
@@ -58,7 +48,7 @@ const ProjectLink = styled(Link)`
   }
 `;
 
-const ProjectContainer = styled.article`
+const GalleryProjectContainer = styled.article`
   font-size: ${textSizes.lg};
   margin-bottom: ${spacing["2xl"]};
 
@@ -117,20 +107,20 @@ const ProjectContainer = styled.article`
   }
 `;
 
-function Project({ name, blurb, slug, category, date, thumbnailImg }) {
+function GalleryProject({ name, blurb, slug, category, date, thumbnailImg }) {
   return (
-    <ProjectContainer>
-      <ProjectLink to={`/work/${slug}`}>
+    <GalleryProjectContainer>
+      <GalleryProjectLink to={`/work/${slug}`}>
         <Img fluid={thumbnailImg.fluid} alt="" />
         <div style={{ marginTop: spacing.md }}>
-          <ProjectName>{name}</ProjectName>
-          <ProjectBlurb>{blurb}</ProjectBlurb>
+          <GalleryProjectName>{name}</GalleryProjectName>
+          <GalleryProjectBlurb>{blurb}</GalleryProjectBlurb>
         </div>
-        <ProjectDetails>
+        <GalleryProjectDetails>
           {category}&emsp;//&emsp;<time>{date}</time>
-        </ProjectDetails>
-      </ProjectLink>
-    </ProjectContainer>
+        </GalleryProjectDetails>
+      </GalleryProjectLink>
+    </GalleryProjectContainer>
   );
 }
 
@@ -182,7 +172,7 @@ export default function ProjectGallery() {
     <Section style={{ backgroundColor: colors["grey-lightest"] }}>
       <GalleryContainer>
         {projects.edges.map(({ node: project }) => (
-          <Project key={project.slug} {...project} />
+          <GalleryProject key={project.slug} {...project} />
         ))}
       </GalleryContainer>
     </Section>
