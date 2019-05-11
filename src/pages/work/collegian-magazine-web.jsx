@@ -2,7 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import CaseStudy from "../../components/case-study";
 
-export default function CollegianMagazineWeb() {
+export default function CollegianMagazineWeb({ location }) {
   const data = useStaticQuery(graphql`
     query CollegianMagazineWebQuery {
       project: projectsYaml(slug: { eq: "collegian-magazine-web" }) {
@@ -19,7 +19,7 @@ export default function CollegianMagazineWeb() {
   `);
 
   return (
-    <CaseStudy {...data}>
+    <CaseStudy location={location} {...data}>
       <h1>Collegian Magazine Web</h1>
     </CaseStudy>
   );

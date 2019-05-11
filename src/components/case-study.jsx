@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
-import { TweenMax, Power4 } from "gsap";
+import { TimelineMax, Power4 } from "gsap";
 import {
   colors,
   spacing,
@@ -92,20 +92,25 @@ const Body = styled.div`
   }
 `;
 
-export default function CaseStudy({ project, thumbnail, children }) {
+export default function CaseStudy({ project, thumbnail, children, location }) {
   const headingRef = useRef(null);
   const imageRef = useRef(null);
   const bodyRef = useRef(null);
 
   useLayoutEffect(() => {
-    [headingRef, imageRef, bodyRef].forEach((ref, i) => {
-      TweenMax.from(ref.current, 1, {
-        y: 10,
-        opacity: 0,
-        delay: 0.5 + i * 0.25,
-        ease: Power4.easeOut
-      });
+    const tl = new TimelineMax({
+      paused: true,
+      delay: location && location.state && location.state.fromHome ? 0.5 : 0
     });
+    const opts = {
+      y: 10,
+      opacity: 0,
+      ease: Power4.easeOut
+    };
+    tl.from(headingRef.current, 1, opts)
+      .from(imageRef.current, 1, opts, "-=0.75")
+      .from(bodyRef.current, 1, opts, "-=0.75");
+    tl.play();
   }, []);
 
   return (

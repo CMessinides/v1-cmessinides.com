@@ -110,6 +110,7 @@ function GalleryProject({
         paintDrip
         hex={themeColor}
         duration={0.8}
+        state={{ fromHome: true }}
       >
         <Img fluid={thumbnailImg.fluid} alt="" />
         <div style={{ marginTop: spacing.md }}>

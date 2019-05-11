@@ -2,7 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import CaseStudy from "../../components/case-study";
 
-export default function KenyonCollegianLogo() {
+export default function KenyonCollegianLogo({ location }) {
   const data = useStaticQuery(graphql`
     query KenyonCollegianLogoQuery {
       project: projectsYaml(slug: { eq: "kenyon-collegian-logo" }) {
@@ -19,7 +19,7 @@ export default function KenyonCollegianLogo() {
   `);
 
   return (
-    <CaseStudy {...data}>
+    <CaseStudy location={location} {...data}>
       <h1>Kenyon Collegian Logo</h1>
     </CaseStudy>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import CaseStudy from "../../components/case-study";
 
-export default function KenyonReview() {
+export default function KenyonReview({ location }) {
   const data = useStaticQuery(graphql`
     query KenyonReviewQuery {
       project: projectsYaml(slug: { eq: "kenyon-review" }) {
@@ -19,7 +19,7 @@ export default function KenyonReview() {
   `);
 
   return (
-    <CaseStudy {...data}>
+    <CaseStudy location={location} {...data}>
       <h1>Kenyon Review</h1>
     </CaseStudy>
   );
