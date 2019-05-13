@@ -13,7 +13,8 @@ export const useContainerPadding = css`
 
 const Container = styled.div`
   max-width: ${({ maxWidth = "normal" }) => maxWidths[maxWidth]};
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   ${useContainerPadding};
 `;
 

@@ -25,7 +25,7 @@ const HeaderImage = styled(Img)`
   top: ${spacing.lg};
   filter: ${shadows.md.asDrop};
 
-  @media (min-width: 36em) {
+  @media ${screens.md} {
     top: ${spacing.xl};
   }
 `;
@@ -72,7 +72,12 @@ const NavLink = styled(AniLink)`
 const NavBar = ({ theme, text }) => {
   return (
     <nav
-      style={{ backgroundColor: theme, color: text, paddingTop: spacing.md }}
+      style={{
+        backgroundColor: theme,
+        color: text,
+        lineHeight: "0",
+        paddingTop: spacing.md
+      }}
     >
       <Container maxWidth="narrower">
         <NavLink to="/" cover direction="left" bg={theme} duration={0.8}>
@@ -85,10 +90,32 @@ const NavBar = ({ theme, text }) => {
 };
 
 const Body = styled.div`
-  padding: ${spacing.lg.times(2)} 0 ${spacing.lg};
+  --color-theme: ${props => (props.theme ? props.theme : colors["grey-light"])};
+  --color-text: ${props => (props.text ? props.text : colors.black)};
+  padding: ${spacing.xl.add(spacing.lg)} 0 ${spacing.lg};
+
+  > * + * {
+    margin-top: ${spacing.xl};
+  }
 
   @media (min-width: 36em) {
-    padding-top: ${spacing.lg.add(spacing.xl)};
+    font-size: ${18 / 16}rem;
+  }
+
+  @media ${screens.md} {
+    padding: ${spacing["3xl"].add(spacing.xl)} 0 ${spacing["3xl"]};
+
+    > * + * {
+      margin-top: ${spacing["3xl"]};
+    }
+  }
+
+  @media ${screens.xl} {
+    padding: ${spacing["4xl"].add(spacing.xl)} 0 ${spacing["4xl"]};
+
+    > * + * {
+      margin-top: ${spacing["4xl"]};
+    }
   }
 `;
 
@@ -129,7 +156,9 @@ export default function CaseStudy({ project, thumbnail, children, location }) {
             <HeaderImage alt="" fluid={thumbnail.childImageSharp.fluid} />
           </Container>
         </Header>
-        <Body ref={bodyRef}>{children}</Body>
+        <Body ref={bodyRef} theme={project.themeColor} text={project.textColor}>
+          {children}
+        </Body>
       </article>
     </Layout>
   );
@@ -147,8 +176,8 @@ export const query = graphql`
 
   fragment CaseStudyThumbnail on File {
     childImageSharp {
-      fluid(maxWidth: 768) {
-        ...GatsbyImageSharpFluid_tracedSVG
+      fluid(maxWidth: 960) {
+        ...GatsbyImageSharpFluid
       }
     }
   }

@@ -4,6 +4,7 @@ import { fontFamilies, tracking, colors } from "./tokens";
 export const ProjectName = styled.h3`
   font-weight: 700;
   display: inline;
+  font-family: ${fontFamilies.heading};
   ${props => props.color && "color: " + props.color};
 `;
 

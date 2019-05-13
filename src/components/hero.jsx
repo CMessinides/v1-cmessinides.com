@@ -29,8 +29,7 @@ const HeroKicker = styled.p`
 `;
 
 const HeroHeading = styled.h1`
-  text-transform: uppercase;
-  letter-spacing: ${tracking.wide};
+  font-family: ${fontFamilies.heading};
   line-height: ${leading.none};
   font-weight: 700;
   font-size: ${textSizes["2xl"]};

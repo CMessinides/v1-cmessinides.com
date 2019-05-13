@@ -4,8 +4,8 @@
   category: Print
   date: Fall 2016 – Spring 2019
   thumbnail: kr-posters-thumb.png
-  themeColor: "#F4BD30"
-  textColor: "#403517"
+  themeColor: "#a9e0e0"
+  textColor: "#215252"
 - name: The Kenyon Collegian Website
   blurb: A clear, engaging news experience for readers on and off the Hill.
   slug: kenyon-collegian-web
@@ -20,7 +20,7 @@
   category: Branding
   date: Winter 2016
   thumbnail: kc-logo-thumb.png
-  themeColor: "#4B2E84"
+  themeColor: "#6e52a7"
   textColor: "#FFFFFF"
 - name: MLK, Student Newspapers, and the Five Colleges of Ohio
   blurb: History, race, and student media at Ohio’s private liberal arts colleges.
@@ -28,7 +28,7 @@
   category: Web
   date: Spring 2019
   thumbnail: mlk-web-thumb.jpg
-  themeColor: "#6574CD"
+  themeColor: "#818dd7"
   textColor: "#FFFFFF"
 - name: The Collegian Magazine Website
   blurb: Flexible layouts and bold typography for Kenyon’s longform stories.
@@ -39,7 +39,7 @@
   themeColor: "#3875A8"
   textColor: "#FFFFFF"
 - name: 40.3756° N, 82.3971° W → 32.3792° N, 86.3077° W
-  blurb: An archive of violence, a map of movement.
+  blurb: A roadmap through a violent history.
   slug: forty-north-map
   category: Print
   date: Fall 2018

@@ -145,6 +145,10 @@ export const reset = css`
       box-sizing: inherit;
     }
   }
+
+  .tl-edges {
+    overflow: hidden;
+  }
 `;
 
 export const CSSReset = createGlobalStyle`${reset}`;

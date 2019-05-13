@@ -145,8 +145,8 @@ export const spacing = Object.keys(spacingScale).reduce((map, label) => {
 }, {});
 
 export const maxWidths = {
-  narrower: "40rem",
-  narrow: "56rem",
+  narrower: "42rem",
+  narrow: "66rem",
   normal: "78rem",
   wide: "80rem"
 };
@@ -184,13 +184,14 @@ export const measure = {
   normal: "32em"
 };
 
+const serifFamily = "Spectral, Georgia, Times, serif";
 const sansFamily =
-  "Rubik, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
+  "'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
 
 const monoFamily = "Inconsolata, Consolas, 'Courier New', Courier, monospace";
 
 export const fontFamilies = {
-  body: sansFamily,
+  body: serifFamily,
   heading: sansFamily,
   mono: monoFamily
 };

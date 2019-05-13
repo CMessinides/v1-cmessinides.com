@@ -154,7 +154,7 @@ export default function ProjectGallery() {
             src: publicURL
             img: childImageSharp {
               fluid(maxWidth: 640, maxHeight: 360) {
-                ...GatsbyImageSharpFluid_tracedSVG
+                ...GatsbyImageSharpFluid
               }
             }
           }
@@ -172,6 +172,9 @@ export default function ProjectGallery() {
 
   return (
     <Section style={{ backgroundColor: colors["grey-lightest"] }}>
+      <Container>
+        <Section.Heading>Projects</Section.Heading>
+      </Container>
       <GalleryContainer>
         {projects.edges.map(({ node: project }) => (
           <GalleryProject key={project.slug} {...project} />

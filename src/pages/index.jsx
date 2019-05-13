@@ -4,6 +4,8 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Hero from "../components/hero";
 import ProjectGallery from "../components/homepage/project-gallery";
+import About from "../components/homepage/about";
+import Endorsement from "../components/homepage/endorsement";
 
 const IndexPage = () => {
   return (
@@ -11,6 +13,8 @@ const IndexPage = () => {
       <SEO />
       <Hero />
       <ProjectGallery />
+      <About />
+      <Endorsement />
     </Layout>
   );
 };
