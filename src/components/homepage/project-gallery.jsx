@@ -101,7 +101,7 @@ function GalleryProject({
   category,
   date,
   themeColor,
-  thumbnailImg
+  thumbnail
 }) {
   return (
     <GalleryProjectContainer>
@@ -110,9 +110,9 @@ function GalleryProject({
         paintDrip
         hex={themeColor}
         duration={0.8}
-        state={{ fromHome: true }}
+        state={{ hasPageTransition: true }}
       >
-        <Img fluid={thumbnailImg.fluid} alt="" />
+        <Img fluid={thumbnail.childImageSharp.fluid} alt="" />
         <div style={{ marginTop: spacing.md }}>
           <ProjectName color={colors.purple}>{name}</ProjectName>
           <ProjectBlurb color="inherit">{blurb}</ProjectBlurb>
@@ -133,7 +133,6 @@ export default function ProjectGallery() {
           node {
             name
             blurb
-            thumbnail
             slug
             category
             date
@@ -145,14 +144,13 @@ export default function ProjectGallery() {
       thumbs: allFile(
         filter: {
           sourceInstanceName: { eq: "images" }
-          relativePath: { glob: "*-thumb.+(jpg|png)" }
+          relativeDirectory: { eq: "thumbnails" }
         }
       ) {
         edges {
           node {
-            base
-            src: publicURL
-            img: childImageSharp {
+            name
+            childImageSharp {
               fluid(maxWidth: 640, maxHeight: 360) {
                 ...GatsbyImageSharpFluid
               }
@@ -165,9 +163,9 @@ export default function ProjectGallery() {
 
   projects.edges.forEach(({ node: project }) => {
     const thumbnail = thumbs.edges.find(
-      ({ node: thumb }) => thumb.base === project.thumbnail
+      ({ node: thumb }) => thumb.name === project.slug
     );
-    if (thumbnail) project.thumbnailImg = thumbnail.node.img;
+    if (thumbnail) project.thumbnail = thumbnail.node;
   });
 
   return (
@@ -176,8 +174,8 @@ export default function ProjectGallery() {
         <Section.Heading>Projects</Section.Heading>
       </Container>
       <GalleryContainer>
-        {projects.edges.map(({ node: project }) => (
-          <GalleryProject key={project.slug} {...project} />
+        {projects.edges.map(({ node }) => (
+          <GalleryProject key={node.slug} {...node} />
         ))}
       </GalleryContainer>
     </Section>

@@ -1,51 +1,11 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import CaseStudy from "../../components/case-study";
-import Section from "../../components/section";
-import Text, { Figure, Link } from "../../components/article/text";
+import { graphql } from "gatsby";
+import CaseStudy from "../case-study";
+import Text, { Figure, Link } from "../article/text";
 import Img from "gatsby-image";
-import Container from "../../components/container";
 import styled from "styled-components";
-import { spacing, screens } from "../../components/tokens";
-
-const MobileGallery = styled(Container).attrs({
-  maxWidth: "narrow"
-})`
-  display: flex;
-  flex-wrap: wrap;
-
-  @media ${screens.md} {
-    flex-wrap: nowrap;
-  }
-`;
-
-const MobileGalleryItem = styled(Figure)`
-  padding-bottom: ${spacing.lg};
-  width: 50%;
-
-  &:last-child,
-  &:nth-last-child(2) {
-    padding-bottom: 0;
-  }
-
-  &:nth-child(2n) {
-    padding-left: ${spacing.lg.times(0.5).asPx};
-  }
-
-  &:nth-child(2n + 1) {
-    padding-right: ${spacing.lg.times(0.5).asPx};
-  }
-
-  @media ${screens.md} {
-    width: 25%;
-    padding: 0 !important;
-    margin-right: ${spacing.xl.asPx};
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-`;
+import { screens } from "../tokens";
+import { FourWideGrid, GridItem } from "../article/grid";
 
 const DetailsGrid = styled.div`
   display: flex;
@@ -61,84 +21,14 @@ const DetailsGridItem = styled(Figure)`
   }
 `;
 
-export default function CollegianMagazineWeb({ location }) {
-  const data = useStaticQuery(graphql`
-    query CollegianMagazineWebQuery {
-      project: projectsYaml(slug: { eq: "collegian-magazine-web" }) {
-        ...CaseStudyProject
-      }
-
-      thumbnail: file(
-        sourceInstanceName: { eq: "images" }
-        relativePath: { eq: "cm-web-thumb.png" }
-      ) {
-        ...CaseStudyThumbnail
-      }
-
-      img1: file(
-        sourceInstanceName: { eq: "images" }
-        relativePath: { eq: "cm-web/001.png" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 2560) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-
-      mobileImgs: allFile(
-        filter: {
-          sourceInstanceName: { eq: "images" }
-          relativePath: { glob: "cm-web/00+(2|3|4|5).png" }
-        }
-        sort: { fields: name }
-      ) {
-        edges {
-          node {
-            name
-            childImageSharp {
-              fluid(maxWidth: 400) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-      }
-
-      img2: file(
-        sourceInstanceName: { eq: "images" }
-        relativePath: { eq: "cm-web/006.png" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 2560) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-
-      detailImgs: allFile(
-        filter: {
-          sourceInstanceName: { eq: "images" }
-          relativePath: { glob: "cm-web/0+(07|08|09|10).png" }
-        }
-        sort: { fields: name }
-      ) {
-        edges {
-          node {
-            name
-            childImageSharp {
-              fluid(maxWidth: 400) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
+export default function CollegianMagazineWeb({ data, pageContext, location }) {
   return (
-    <CaseStudy location={location} {...data}>
+    <CaseStudy
+      location={location}
+      thumbnail={data.thumbnail}
+      bodyPadding="both"
+      {...pageContext}
+    >
       <Text>
         <p>
           Since its first issue in 2014, the <em>Collegian Magazine</em> has
@@ -170,15 +60,15 @@ export default function CollegianMagazineWeb({ location }) {
           without a hitch.
         </p>
       </Text>
-      <MobileGallery>
+      <FourWideGrid>
         {data.mobileImgs.edges.map(({ node }) => {
           return (
-            <MobileGalleryItem key={node.name}>
+            <GridItem key={node.name}>
               <Img fluid={node.childImageSharp.fluid} />
-            </MobileGalleryItem>
+            </GridItem>
           );
         })}
-      </MobileGallery>
+      </FourWideGrid>
       <Text>
         <p>
           The website&rsquo;s minimal design rests on a foundation of solid
@@ -221,3 +111,71 @@ export default function CollegianMagazineWeb({ location }) {
     </CaseStudy>
   );
 }
+
+export const query = graphql`
+  query($thumbnailPath: String!) {
+    thumbnail: file(absolutePath: { eq: $thumbnailPath }) {
+      ...CaseStudyThumbnail
+    }
+
+    img1: file(
+      sourceInstanceName: { eq: "images" }
+      relativePath: { eq: "cm-web/001.png" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 2560) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+
+    mobileImgs: allFile(
+      filter: {
+        sourceInstanceName: { eq: "images" }
+        relativePath: { glob: "cm-web/00+(2|3|4|5).png" }
+      }
+      sort: { fields: name }
+    ) {
+      edges {
+        node {
+          name
+          childImageSharp {
+            fluid(maxWidth: 400) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+
+    img2: file(
+      sourceInstanceName: { eq: "images" }
+      relativePath: { eq: "cm-web/006.png" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 2560) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+
+    detailImgs: allFile(
+      filter: {
+        sourceInstanceName: { eq: "images" }
+        relativePath: { glob: "cm-web/0+(07|08|09|10).png" }
+      }
+      sort: { fields: name }
+    ) {
+      edges {
+        node {
+          name
+          childImageSharp {
+            fluid(maxWidth: 400) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`;

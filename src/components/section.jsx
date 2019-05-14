@@ -8,16 +8,44 @@ import {
   tracking
 } from "./tokens";
 
+const wrapInMediaQuery = (query = null, styles) => {
+  if (query === null) return styles;
+
+  return `
+    @media ${query} {
+      ${styles}
+    }
+  `;
+};
+
+export const useSectionSpacing = ({
+  direction = "both",
+  property = "padding"
+} = {}) => {
+  const includeTop = direction === "top" || direction === "both";
+  const includeBottom = direction === "bottom" || direction === "both";
+
+  const sizes = [
+    { screen: null, space: spacing.xl },
+    { screen: screens.md, space: spacing["3xl"] },
+    { screen: screens.lg, space: spacing["4xl"] }
+  ];
+
+  return sizes
+    .map(({ screen, space }) => {
+      return wrapInMediaQuery(
+        screen,
+        `
+      ${includeTop && property + "-top: " + space};
+      ${includeBottom && property + "-bottom: " + space};
+    `
+      );
+    })
+    .join(" ");
+};
+
 const Section = styled.section`
-  padding: ${spacing.xl} 0;
-
-  @media ${screens.md} {
-    padding: ${spacing["3xl"]} 0;
-  }
-
-  @media ${screens.xl} {
-    padding: ${spacing["4xl"]} 0;
-  }
+  ${useSectionSpacing()};
 `;
 
 Section.Heading = styled.h2`

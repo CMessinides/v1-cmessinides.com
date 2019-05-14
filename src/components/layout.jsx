@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import CSSReset from "./css-reset";
 import styled from "styled-components";
 import { colors, textSizes, leading, fontFamilies } from "./tokens";
+import Footer from "./footer";
 
 const LayoutWrapper = styled.div`
   background-color: ${colors.white};
@@ -21,24 +22,7 @@ const Layout = ({ children }) => {
     <LayoutWrapper>
       <CSSReset />
       <main className="application__main">{children}</main>
-      <footer className="application__footer footer">
-        <div className="container footer__container">
-          <span className="footer__copyright">
-            Copyright © {new Date().getFullYear()} Cameron Messinides
-          </span>
-          <span className="footer__credit">
-            Built with{" "}
-            <a
-              className="footer__link"
-              href="https://www.gatsbyjs.org"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              Gatsby
-            </a>
-          </span>
-        </div>
-      </footer>
+      <Footer />
     </LayoutWrapper>
   );
 };

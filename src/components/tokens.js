@@ -159,7 +159,7 @@ const textScale = {
   xl: 24,
   "2xl": 32,
   "3xl": 48,
-  "4xl": 80,
+  "4xl": 64,
   "5xl": 96
 };
 export const textSizes = Object.keys(textScale).reduce((map, label) => {
@@ -209,7 +209,7 @@ export const colors = {
   white: new Color("#ffffff"),
   // Brand colors
   purple: new Color("#5B25EF"),
-  "purple-light": new Color("#7344F4"),
+  "purple-light": new Color("#8861f1"),
   "purple-lightest": new Color("#D4C8F4"),
   "orange-darkest": new Color("#2d1a02"),
   "orange-darker": new Color("#87500a"),

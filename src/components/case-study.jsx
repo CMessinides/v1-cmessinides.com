@@ -1,6 +1,5 @@
 import React, { useRef, useLayoutEffect } from "react";
 import styled from "styled-components";
-import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { TimelineMax, Power4 } from "gsap";
@@ -19,6 +18,9 @@ import Layout from "./layout";
 import SEO from "./seo";
 import { ProjectName, ProjectBlurb } from "./project";
 import { ArrowLeft } from "react-feather";
+import { graphql } from "gatsby";
+import GoToNextProject from "./go-to-next-project";
+import { useSectionSpacing } from "./section";
 
 const HeaderImage = styled(Img)`
   position: relative;
@@ -47,9 +49,11 @@ const Header = styled.header`
   padding-top: ${spacing["2xl"]};
   background-color: ${props => (props.theme ? props.theme : colors.black)};
   color: ${props => (props.text ? props.text : colors.white)};
+  margin-bottom: ${spacing.lg};
 
   @media ${screens.md} {
     padding-top: ${spacing["4xl"]};
+    margin-bottom: ${spacing.xl};
   }
 `;
 
@@ -92,34 +96,25 @@ const NavBar = ({ theme, text }) => {
 const Body = styled.div`
   --color-theme: ${props => (props.theme ? props.theme : colors["grey-light"])};
   --color-text: ${props => (props.text ? props.text : colors.black)};
-  padding: ${spacing.xl.add(spacing.lg)} 0 ${spacing.lg};
+  ${({ padding = "top" }) => useSectionSpacing({ direction: padding })};
 
   > * + * {
-    margin-top: ${spacing.xl};
+    ${useSectionSpacing({ direction: "top", property: "margin" })};
   }
 
   @media (min-width: 36em) {
     font-size: ${18 / 16}rem;
   }
-
-  @media ${screens.md} {
-    padding: ${spacing["3xl"].add(spacing.xl)} 0 ${spacing["3xl"]};
-
-    > * + * {
-      margin-top: ${spacing["3xl"]};
-    }
-  }
-
-  @media ${screens.xl} {
-    padding: ${spacing["4xl"].add(spacing.xl)} 0 ${spacing["4xl"]};
-
-    > * + * {
-      margin-top: ${spacing["4xl"]};
-    }
-  }
 `;
 
-export default function CaseStudy({ project, thumbnail, children, location }) {
+export default function CaseStudy({
+  project,
+  nextProject,
+  thumbnail,
+  children,
+  location,
+  bodyPadding
+}) {
   const headingRef = useRef(null);
   const imageRef = useRef(null);
   const bodyRef = useRef(null);
@@ -127,7 +122,8 @@ export default function CaseStudy({ project, thumbnail, children, location }) {
   useLayoutEffect(() => {
     const tl = new TimelineMax({
       paused: true,
-      delay: location && location.state && location.state.fromHome ? 0.5 : 0
+      delay:
+        location && location.state && location.state.hasPageTransition ? 0.5 : 0
     });
     const opts = {
       y: 10,
@@ -156,24 +152,23 @@ export default function CaseStudy({ project, thumbnail, children, location }) {
             <HeaderImage alt="" fluid={thumbnail.childImageSharp.fluid} />
           </Container>
         </Header>
-        <Body ref={bodyRef} theme={project.themeColor} text={project.textColor}>
+        <Body
+          ref={bodyRef}
+          theme={project.themeColor}
+          text={project.textColor}
+          padding={bodyPadding}
+        >
           {children}
         </Body>
+        <footer>
+          <GoToNextProject {...nextProject} />
+        </footer>
       </article>
     </Layout>
   );
 }
 
 export const query = graphql`
-  fragment CaseStudyProject on ProjectsYaml {
-    name
-    blurb
-    date
-    category
-    themeColor
-    textColor
-  }
-
   fragment CaseStudyThumbnail on File {
     childImageSharp {
       fluid(maxWidth: 960) {

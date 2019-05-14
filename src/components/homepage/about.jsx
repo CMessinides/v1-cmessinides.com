@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import Section from "../section";
 import Container from "../container";
 import { fontFamilies, spacing, colors, measure, screens } from "../tokens";

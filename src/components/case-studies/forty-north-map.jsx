@@ -1,5 +1,5 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import CaseStudy from "../../components/case-study";
 import Text, { Link, GridWithFallback } from "../../components/article/text";
 import Container from "../../components/container";
@@ -27,68 +27,14 @@ const Gallery = styled(GridWithFallback).attrs(() => {
   }
 `;
 
-export default function FortyNorthMap({ location }) {
-  const data = useStaticQuery(graphql`
-    query FortyNorthMapQuery {
-      project: projectsYaml(slug: { eq: "forty-north-map" }) {
-        ...CaseStudyProject
-      }
-
-      thumbnail: file(
-        sourceInstanceName: { eq: "images" }
-        relativePath: { eq: "forty-north-thumb.jpg" }
-      ) {
-        ...CaseStudyThumbnail
-      }
-
-      img1: file(
-        sourceInstanceName: { eq: "images" }
-        relativePath: { eq: "forty-north-map/001.jpg" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 960) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-
-      img2: file(
-        sourceInstanceName: { eq: "images" }
-        relativePath: { eq: "forty-north-map/005.png" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 2560) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-
-      img3: file(
-        sourceInstanceName: { eq: "images" }
-        relativePath: { eq: "forty-north-map/003.jpg" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 768) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-
-      img4: file(
-        sourceInstanceName: { eq: "images" }
-        relativePath: { eq: "forty-north-map/002.jpg" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 768) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
-
+export default function FortyNorthMap({ data, pageContext, location }) {
   return (
-    <CaseStudy location={location} {...data}>
+    <CaseStudy
+      location={location}
+      thumbnail={data.thumbnail}
+      bodyPadding="both"
+      {...pageContext}
+    >
       <Text>
         <p>
           In November 2018, I had the opportunity to travel with the rest of the
@@ -114,7 +60,15 @@ export default function FortyNorthMap({ location }) {
         <p>
           Strong typography is at the heart of the book. Bold black and crimson
           text give the design heft, counterbalanced by lighter washes of blue
-          and green watercolor.
+          and green watercolor. Most of the text is set in{" "}
+          <Link to="https://software.sil.org/gentium/">Gentium Book Basic</Link>
+          , whose old-style characteristics lend themselves well to the acetone
+          transfer printing process. For a sharp contrast, the title is set
+          large in the more modern{" "}
+          <Link to="https://fabiandesmet.com/portfolio/butler-font/">
+            Butler
+          </Link>
+          .
         </p>
       </Text>
       <Img fluid={data.img2.childImageSharp.fluid} />
@@ -130,3 +84,55 @@ export default function FortyNorthMap({ location }) {
     </CaseStudy>
   );
 }
+
+export const query = graphql`
+  query($thumbnailPath: String!) {
+    thumbnail: file(absolutePath: { eq: $thumbnailPath }) {
+      ...CaseStudyThumbnail
+    }
+
+    img1: file(
+      sourceInstanceName: { eq: "images" }
+      relativePath: { eq: "forty-north-map/001.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 960) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+
+    img2: file(
+      sourceInstanceName: { eq: "images" }
+      relativePath: { eq: "forty-north-map/005.png" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 2560) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+
+    img3: file(
+      sourceInstanceName: { eq: "images" }
+      relativePath: { eq: "forty-north-map/003.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 768) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+
+    img4: file(
+      sourceInstanceName: { eq: "images" }
+      relativePath: { eq: "forty-north-map/002.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 768) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;

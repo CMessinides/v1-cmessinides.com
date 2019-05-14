@@ -6,15 +6,17 @@ import Hero from "../components/hero";
 import ProjectGallery from "../components/homepage/project-gallery";
 import About from "../components/homepage/about";
 import Endorsement from "../components/homepage/endorsement";
+import Kicker from "../components/homepage/kicker";
 
 const IndexPage = () => {
   return (
-    <Layout>
+    <Layout footer={null}>
       <SEO />
       <Hero />
       <ProjectGallery />
       <About />
       <Endorsement />
+      <Kicker />
     </Layout>
   );
 };
