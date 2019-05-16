@@ -53,8 +53,7 @@ export default function KenyonReview({ data, pageContext, location }) {
           For up-and-coming, experimental, or more explicitly political writers,
           a bolder style works well. Deep drop shadows, overlapping text and
           imagery, and more adventurous type treatments&mdash;with heavy use of{" "}
-          <Link to="https://fonts.google.com/specimen/Oswald">Oswald</Link> in
-          all caps and{" "}
+          <Link to="https://fonts.google.com/specimen/Oswald">Oswald</Link> and{" "}
           <Link to="https://fabiandesmet.com/portfolio/butler-font/">
             Butler
           </Link>
@@ -95,7 +94,7 @@ export default function KenyonReview({ data, pageContext, location }) {
           <Link to="https://www.kenyonreview.org/kr-online-issue/resistance-change-survival/">
             Resistance, Change, Survival
           </Link>{" "}
-          panel, I drew inspiration from previous visuals for the
+          panel, I drew inspiration from existing visuals for the
           panel&mdash;which featured{" "}
           <Link to="https://www.kenyonreview.org/wp-content/uploads/resist-sidebar-tile.jpg">
             a photo of a candlelight vigil
@@ -106,7 +105,7 @@ export default function KenyonReview({ data, pageContext, location }) {
       <Img fluid={data.illustrationImg.childImageSharp.fluid} />
       <Text>
         <p>
-          For established authors or events more closely associated with{" "}
+          For established authors or events more closely associated with the{" "}
           <em>Kenyon Review</em> itself, I turn to a more traditional style.
           Along with Butler,{" "}
           <Link to="https://www.behance.net/gallery/28579883/Cormorant-an-open-source-display-font-family">
@@ -137,8 +136,9 @@ export default function KenyonReview({ data, pageContext, location }) {
         })}
       </IllustrationGallery>
       <Text>
-        And lastly, to go along with every print poster, I desgn an accompanying
-        digital graphic for use in email newsletters and on social media.
+        And lastly, to go along with every print poster, I design an
+        accompanying digital graphic for use in email newsletters and on social
+        media.
       </Text>
       <Img fluid={data.emailHeaders.childImageSharp.fluid} />
     </CaseStudy>

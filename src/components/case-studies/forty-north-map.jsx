@@ -81,6 +81,9 @@ export default function FortyNorthMap({ data, pageContext, location }) {
         <Img fluid={data.img3.childImageSharp.fluid} />
         <Img fluid={data.img4.childImageSharp.fluid} />
       </Gallery>
+      <Text>
+        <em>Photos courtesy of Ellen Sheffield.</em>
+      </Text>
     </CaseStudy>
   );
 }

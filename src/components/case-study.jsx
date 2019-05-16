@@ -65,7 +65,7 @@ const NavLink = styled(AniLink)`
   align-items: center;
   text-transform: uppercase;
   letter-spacing: ${tracking.wide};
-  opacity: 0.5;
+  opacity: 0.75;
 
   &:hover,
   &:focus {

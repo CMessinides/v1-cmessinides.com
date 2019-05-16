@@ -15,13 +15,27 @@ const LayoutWrapper = styled.div`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-kerning: normal;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 `;
 
-const Layout = ({ children }) => {
+const LayoutMain = styled.main`
+  flex: 1 auto;
+  ${props =>
+    props.centerContent &&
+    `
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  `};
+`;
+
+const Layout = ({ centerContent = false, children }) => {
   return (
     <LayoutWrapper>
       <CSSReset />
-      <main className="application__main">{children}</main>
+      <LayoutMain centerContent={centerContent}>{children}</LayoutMain>
       <Footer />
     </LayoutWrapper>
   );
