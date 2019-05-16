@@ -53,6 +53,8 @@ Figure.Caption = styled.figcaption`
   font-family: ${fontFamilies.mono};
   color: ${colors["grey-darker"]};
   font-size: ${textSizes.sm};
+  padding: ${spacing.xs} 0;
+  border-bottom: 1px ${colors["grey-light"]} solid;
 `;
 
 export const GridWithFallback = styled(Container).attrs(

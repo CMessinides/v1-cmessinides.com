@@ -36,8 +36,8 @@ export const useSectionSpacing = ({
       return wrapInMediaQuery(
         screen,
         `
-      ${includeTop && property + "-top: " + space};
-      ${includeBottom && property + "-bottom: " + space};
+      ${includeTop ? property + "-top: " + space : ""};
+      ${includeBottom ? property + "-bottom: " + space : ""};
     `
       );
     })

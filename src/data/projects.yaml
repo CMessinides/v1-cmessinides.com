@@ -19,12 +19,19 @@
   date: Winter 2016
   themeColor: "#6e52a7"
   textColor: "#FFFFFF"
-- name: MLK, Student Newspapers, and the Five Colleges of Ohio
-  blurb: History, race, and student media at Ohio’s private liberal arts colleges.
-  slug: mlk-five-colleges
-  category: Web
-  date: Spring 2019
-  themeColor: "#818dd7"
+# - name: MLK, Student Newspapers, and the Five Colleges of Ohio
+#   blurb: History, race, and student media at Ohio’s private liberal arts colleges.
+#   slug: mlk-five-colleges
+#   category: Web
+#   date: Spring 2019
+#   themeColor: "#818dd7"
+#   textColor: "#FFFFFF"
+- name: 40.3756° N, 82.3971° W → 32.3792° N, 86.3077° W
+  blurb: A roadmap through a violent history.
+  slug: forty-north-map
+  category: Print
+  date: Fall 2018
+  themeColor: "#DC0723"
   textColor: "#FFFFFF"
 - name: The Collegian Magazine Website
   blurb: Flexible layouts and bold typography for Kenyon’s longform stories.
@@ -33,10 +40,4 @@
   date: Summer 2017
   themeColor: "#3875A8"
   textColor: "#FFFFFF"
-- name: 40.3756° N, 82.3971° W → 32.3792° N, 86.3077° W
-  blurb: A roadmap through a violent history.
-  slug: forty-north-map
-  category: Print
-  date: Fall 2018
-  themeColor: "#DC0723"
-  textColor: "#FFFFFF"
+
