@@ -137,7 +137,9 @@ const spacingScale = {
   "2xl": 48,
   "3xl": 64,
   "4xl": 96,
-  "5xl": 144
+  "5xl": 144,
+  "6xl": 256,
+  "7xl": 320
 };
 export const spacing = Object.keys(spacingScale).reduce((map, label) => {
   map[label] = new SizeUnit(spacingScale[label]);

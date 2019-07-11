@@ -1,71 +1,63 @@
 import React from "react";
 import Section from "./section";
 import Container from "./container";
+import Link from "./link";
 import styled from "styled-components";
 import {
-  tracking,
-  fontFamilies,
-  leading,
-  textSizes,
-  spacing,
-  screens,
-  measure,
-  colors
+	fontFamilies,
+	leading,
+	textSizes,
+	spacing,
+	screens,
+	measure,
+	colors
 } from "./tokens";
 
 const HeroSection = styled(Section)`
-  padding-top: ${spacing["3xl"]};
-  color: ${colors["grey-darker"]};
+	padding-top: ${spacing["5xl"]};
+	color: ${colors["grey-darker"]};
 
-  @media ${screens.md} {
-    padding-top: ${spacing["4xl"]};
-  }
-`;
-
-const HeroKicker = styled.p`
-  font-family: ${fontFamilies.mono};
-  text-transform: uppercase;
-  letter-spacing: ${tracking.wide};
+	@media ${screens.md} {
+		padding-top: ${spacing["4xl"]};
+	}
 `;
 
 const HeroHeading = styled.h1`
-  font-family: ${fontFamilies.heading};
-  line-height: ${leading.none};
-  font-weight: 700;
-  font-size: ${textSizes["2xl"]};
-  color: ${colors.black};
-  margin: ${spacing.md} 0;
-
-  @media (min-width: 24em) {
-    font-size: ${textSizes["3xl"]};
-  }
+	font-family: ${fontFamilies.heading};
+	line-height: ${leading.none};
+	font-weight: 700;
+	font-size: ${textSizes["3xl"]};
+	color: ${colors.black};
+	margin-bottom: ${spacing.md};
 `;
 
 const HeroBlurb = styled.p`
-  max-width: ${measure.normal};
-
-  strong {
-    color: ${colors.black};
-    font-weight: 700;
-  }
+	max-width: ${measure.normal};
 `;
 
 const Hero = () => {
-  return (
-    <HeroSection as="header">
-      <Container>
-        <HeroKicker>Graphic Designer</HeroKicker>
-        <HeroHeading>Cameron Messinides</HeroHeading>
-        <HeroBlurb>
-          Four years of graphic design experience. A proven track record of
-          hitting deadlines. Self-sufficient and quick to learn.{" "}
-          <strong className="text-white">
-            Ready to help the Office of Communications tell Kenyon’s story.
-          </strong>
-        </HeroBlurb>
-      </Container>
-    </HeroSection>
-  );
+	return (
+		<HeroSection as="header">
+			<Container>
+				<HeroHeading>Cameron Messinides</HeroHeading>
+				<HeroBlurb>
+					I’m a writer, designer, and web developer currently based in Ohio.{" "}
+					Recently, I&rsquo;ve built{" "}
+					<Link to="https://thecollegianmagazine.com">
+						thecollegianmagazine.com
+					</Link>{" "}
+					and <Link to="https://kenyoncollegian.com">kenyoncollegian.com</Link>,
+					researched and written about race and news media, and led a newsroom
+					at the{" "}
+					<Link to="https://kenyoncollegian.com/author/cameronnm">
+						Kenyon Collegian
+					</Link>
+					. I care about journalism and digital media &mdash; I’m interested in
+					telling stories online through design, code, data, and words.
+				</HeroBlurb>
+			</Container>
+		</HeroSection>
+	);
 };
 
 export default Hero;

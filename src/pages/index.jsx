@@ -5,7 +5,6 @@ import SEO from "../components/seo";
 import Hero from "../components/hero";
 import ProjectGallery from "../components/homepage/project-gallery";
 import About from "../components/homepage/about";
-import Endorsement from "../components/homepage/endorsement";
 import Kicker from "../components/homepage/kicker";
 
 const IndexPage = () => {
@@ -15,7 +14,6 @@ const IndexPage = () => {
       <Hero />
       <ProjectGallery />
       <About />
-      <Endorsement />
       <Kicker />
     </Layout>
   );
